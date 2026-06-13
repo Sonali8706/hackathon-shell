@@ -7,6 +7,7 @@ import Mapper from './pages/Mapper'
 import Letters from './pages/Letters'
 import Timeline from './pages/Timeline'
 import Family from './pages/Family'
+import AskWidget from './components/AskWidget'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/family" element={<Family />} />
       </Routes>
       <Footer />
+      <AskWidget />
     </BrowserRouter>
   )
 }

@@ -1,3 +1,4 @@
+import { useState, useEffect, useRef } from 'react'
 import { ShieldCheck } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { Upload, Map, FileText, Clock, Search, Users } from 'lucide-react'
@@ -30,18 +31,9 @@ export default function Home() {
       {/* Stats Section */}
       <section className="bg-sage-dark text-cream py-14">
         <div className="max-w-5xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-          <div>
-            <p className="font-serif text-4xl mb-2">400+ hrs</p>
-            <p className="text-cream/80 text-sm">spent by families navigating paperwork alone</p>
-          </div>
-          <div>
-            <p className="font-serif text-4xl mb-2">₹78,213 Cr</p>
-            <p className="text-cream/80 text-sm">in unclaimed bank deposits across India (RBI, 2024)</p>
-          </div>
-          <div>
-            <p className="font-serif text-4xl mb-2">700%</p>
-            <p className="text-cream/80 text-sm">spike in identity theft after a loss</p>
-          </div>
+          <StatCard target={400} suffix="+ hrs" label="spent by families navigating paperwork alone" />
+          <StatCard prefix="₹" target={78213} suffix=" Cr" label="in unclaimed bank deposits across India (RBI, 2024)" />
+          <StatCard target={700} suffix="%" label="spike in identity theft after a loss" />
         </div>
       </section>
 
@@ -114,6 +106,43 @@ function FeatureCard({ icon, title, description, delay = 0 }) {
       <div className="text-sage-dark mb-4">{icon}</div>
       <h3 className="font-serif text-xl text-sage-dark mb-2">{title}</h3>
       <p className="text-sm leading-relaxed">{description}</p>
+    </div>
+  )
+}
+function useCountUp(target, duration = 1500) {
+  const [count, setCount] = useState(0)
+  const ref = useRef(null)
+  const started = useRef(false)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && !started.current) {
+        started.current = true
+        let startTime = null
+        function animate(timestamp) {
+          if (!startTime) startTime = timestamp
+          const progress = Math.min((timestamp - startTime) / duration, 1)
+          setCount(Math.floor(progress * target))
+          if (progress < 1) requestAnimationFrame(animate)
+          else setCount(target)
+        }
+        requestAnimationFrame(animate)
+      }
+    }, { threshold: 0.3 })
+
+    if (ref.current) observer.observe(ref.current)
+    return () => observer.disconnect()
+  }, [target, duration])
+
+  return [count, ref]
+}
+
+function StatCard({ prefix = '', target, suffix = '', label }) {
+  const [count, ref] = useCountUp(target)
+  return (
+    <div ref={ref}>
+      <p className="font-serif text-4xl mb-2">{prefix}{count.toLocaleString('en-IN')}{suffix}</p>
+      <p className="text-cream/80 text-sm">{label}</p>
     </div>
   )
 }
