@@ -38,21 +38,61 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
+{/* Features Section */}
       <section id="features" className="max-w-6xl mx-auto px-6 py-24">
-        <h2 className="font-serif text-3xl md:text-4xl text-sage-dark text-center mb-4">
-          One quiet place for everything
-        </h2>
-        <p className="text-center max-w-xl mx-auto mb-16">
-          Upload what you have. AfterCare AI figures out the rest — and acts on it.
-        </p>
+        <div className="text-center mb-16">
+          <p className="text-sage-dark font-medium mb-3 tracking-wide text-sm uppercase">What AfterCare AI Does</p>
+          <h2 className="font-serif text-3xl md:text-4xl text-sage-dark mb-4">
+            One quiet place for everything
+          </h2>
+          <p className="max-w-xl mx-auto leading-relaxed">
+            Upload what you have. AfterCare AI figures out the rest — and acts on it.
+          </p>
+        </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-            <FeatureCard icon={<Upload size={28} />} title="Guided Onboarding" description="..." delay={0} />
-            <FeatureCard icon={<Map size={28} />} title="AI Estate Mapper" description="..." delay={0.1} />
-            <FeatureCard icon={<FileText size={28} />} title="AI Document Generator" description="..." delay={0.2} />
-            <FeatureCard icon={<Clock size={28} />} title="Deadline Tracker" description="..." delay={0.3} />
-            <FeatureCard icon={<Search size={28} />} title="Hidden Asset Discovery" description="..." delay={0.4} />
-            <FeatureCard icon={<Users size={28} />} title="Family Collaboration" description="..." delay={0.5} />
+        <div className="grid md:grid-cols-2 gap-6">
+          <FeatureCard
+            icon={<Upload size={26} />}
+            title="Guided Onboarding"
+            description="No overwhelming forms. Just upload a death certificate, bank statement, or even a photo — we take it from there."
+            tag="Step 1"
+            delay={0}
+          />
+          <FeatureCard
+            icon={<Map size={26} />}
+            title="AI Estate Mapper"
+            description="A visual map of every account, asset, and subscription we find — color-coded by urgency, with progress you can track."
+            tag="Step 2"
+            delay={0.1}
+          />
+          <FeatureCard
+            icon={<FileText size={26} />}
+            title="AI Document Generator"
+            description="One click creates a legally appropriate closure letter for any institution, ready to download and send."
+            tag="Step 3"
+            delay={0.2}
+          />
+          <FeatureCard
+            icon={<Clock size={26} />}
+            title="Deadline Tracker"
+            description="Every legal deadline explained simply — what it means, and what happens if it's missed."
+            tag="Core"
+            delay={0.3}
+          />
+          <FeatureCard
+            icon={<Search size={26} />}
+            title="Hidden Asset Discovery"
+            description="We flag dormant accounts and forgotten policies families routinely never find — a real ₹78,213 Cr problem in India alone."
+            tag="Unique"
+            delay={0.4}
+          />
+          <FeatureCard
+            icon={<Users size={26} />}
+            title="Family Collaboration"
+            description="Add family members, assign tasks, and track progress together — nothing falls through the cracks."
+            tag="Core"
+            delay={0.5}
+          />
         </div>
       </section>
         {/* How It Works Section */}
@@ -137,12 +177,24 @@ function useCountUp(target, duration = 1500) {
   return [count, ref]
 }
 
-function StatCard({ prefix = '', target, suffix = '', label }) {
-  const [count, ref] = useCountUp(target)
+function FeatureCard({ icon, title, description, tag, delay = 0 }) {
   return (
-    <div ref={ref}>
-      <p className="font-serif text-4xl mb-2">{prefix}{count.toLocaleString('en-IN')}{suffix}</p>
-      <p className="text-cream/80 text-sm">{label}</p>
+    <div
+      className="group bg-white rounded-2xl p-8 border border-sage/15 hover:border-accent/50 hover:shadow-xl transition-all duration-300 animate-fade-in-up"
+      style={{ animationDelay: `${delay}s` }}
+    >
+      <div className="flex items-start justify-between mb-5">
+        <div className="w-14 h-14 rounded-xl bg-sage/10 flex items-center justify-center text-sage-dark group-hover:bg-sage-dark group-hover:text-cream transition-colors duration-300">
+          {icon}
+        </div>
+        {tag && (
+          <span className="text-[11px] font-medium uppercase tracking-wider text-accent border border-accent/30 rounded-full px-3 py-1">
+            {tag}
+          </span>
+        )}
+      </div>
+      <h3 className="font-serif text-xl text-sage-dark mb-2">{title}</h3>
+      <p className="text-sm leading-relaxed text-warm-gray">{description}</p>
     </div>
   )
 }
