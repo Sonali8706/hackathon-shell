@@ -7,9 +7,12 @@ export default function Home() {
     <div className="text-warm-gray">
 
       {/* Hero Section */}
-      <section className="max-w-5xl mx-auto px-6 pt-20 pb-24 text-center">
-        <p className="text-sage-dark font-medium mb-4 tracking-wide text-sm uppercase">
-          You don't have to do this alone
+      <section className="max-w-5xl mx-auto px-6 pt-20 pb-24 text-center relative overflow-hidden animate-fade-in">
+        <div className="absolute -top-20 -left-20 w-72 h-72 bg-sage/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute -bottom-10 -right-10 w-72 h-72 bg-accent/15 rounded-full blur-3xl pointer-events-none"></div>
+
+        <p className="text-sage-dark font-medium mb-4 tracking-wide text-sm uppercase relative">
+            You don't have to do this alone
         </p>
         <h1 className="font-serif text-4xl md:text-6xl text-sage-dark leading-tight mb-6">
           We help families navigate <br /> what comes after loss

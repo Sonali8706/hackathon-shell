@@ -46,4 +46,4 @@ https://hackathon-shell.vercel.app/
 
 ## Team
 
-Soanli kumari jha
+Sonali kumari jha
