@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
-import { ShieldCheck } from 'lucide-react'
 import { Link } from 'react-router-dom'
-import { Upload, Map, FileText, Clock, Search, Users } from 'lucide-react'
+import { Upload, Map, FileText, Clock, Search, Users, ShieldCheck, ArrowRight, Sparkles } from 'lucide-react'
 
 export default function Home() {
   return (
@@ -13,18 +12,18 @@ export default function Home() {
         <div className="absolute -bottom-10 -right-10 w-72 h-72 bg-accent/15 rounded-full blur-3xl pointer-events-none"></div>
 
         <p className="text-sage-dark font-medium mb-4 tracking-wide text-sm uppercase relative">
-            You don't have to do this alone
+          You don't have to do this alone
         </p>
-        <h1 className="font-serif text-4xl md:text-6xl text-sage-dark leading-tight mb-6">
+        <h1 className="font-serif text-4xl md:text-6xl text-sage-dark leading-tight mb-6 relative">
           We help families navigate <br /> what comes after loss
         </h1>
-        <p className="text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
+        <p className="text-lg max-w-2xl mx-auto mb-10 leading-relaxed relative">
           AfterCare AI reads your documents, understands your family's situation,
           and quietly handles the paperwork — closure letters, claims, deadlines —
           so you can focus on what matters.
         </p>
-        <Link to="/upload" className="bg-accent text-white px-8 py-4 rounded-full font-medium text-lg hover:opacity-90 transition shadow-lg shadow-accent/20 inline-block">
-            Start with what you have
+        <Link to="/upload" className="bg-accent text-white px-8 py-4 rounded-full font-medium text-lg hover:opacity-90 transition shadow-lg shadow-accent/20 inline-block relative">
+          Start with what you have
         </Link>
       </section>
 
@@ -38,7 +37,6 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-{/* Features Section */}
       <section id="features" className="max-w-6xl mx-auto px-6 py-24">
         <div className="text-center mb-16">
           <p className="text-sage-dark font-medium mb-3 tracking-wide text-sm uppercase">What AfterCare AI Does</p>
@@ -95,7 +93,8 @@ export default function Home() {
           />
         </div>
       </section>
-        {/* How It Works Section */}
+
+      {/* How It Works Section */}
       <section id="how" className="bg-sage/10 py-24">
         <div className="max-w-5xl mx-auto px-6">
           <h2 className="font-serif text-3xl md:text-4xl text-sage-dark text-center mb-16">
@@ -121,6 +120,31 @@ export default function Home() {
         </div>
       </section>
 
+      {/* MAIN CTA — the "this product actually does something" moment */}
+      <section className="bg-sage-dark text-cream py-24 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="max-w-3xl mx-auto px-6 text-center relative">
+          <div className="inline-flex items-center gap-2 bg-cream/10 border border-cream/20 rounded-full px-4 py-1.5 mb-6 text-sm">
+            <Sparkles size={16} className="text-accent" />
+            Powered by AI — try it yourself
+          </div>
+          <h2 className="font-serif text-3xl md:text-5xl mb-6 leading-tight">
+            Upload one document. <br /> Watch AfterCare AI take it from there.
+          </h2>
+          <p className="text-cream/80 max-w-xl mx-auto mb-10 leading-relaxed">
+            In under a minute, see your accounts mapped by urgency, a legal closure
+            letter drafted for you, and a deadline timeline built — automatically.
+          </p>
+          <Link
+            to="/upload"
+            className="bg-accent text-white px-10 py-5 rounded-full font-medium text-lg hover:opacity-90 transition shadow-2xl shadow-accent/30 inline-flex items-center gap-2"
+          >
+            Get Started — Try AfterCare AI
+            <ArrowRight size={22} />
+          </Link>
+        </div>
+      </section>
+
       {/* Trust Section */}
       <section className="max-w-3xl mx-auto px-6 py-20 text-center">
         <ShieldCheck className="text-sage-dark mx-auto mb-4" size={36} />
@@ -133,22 +157,11 @@ export default function Home() {
           in control of what's stored.
         </p>
       </section>
+
     </div>
   )
 }
 
-function FeatureCard({ icon, title, description, delay = 0 }) {
-  return (
-    <div
-      className="bg-white/60 border border-sage/20 rounded-2xl p-8 hover:shadow-lg hover:-translate-y-1 transition animate-fade-in-up"
-      style={{ animationDelay: `${delay}s` }}
-    >
-      <div className="text-sage-dark mb-4">{icon}</div>
-      <h3 className="font-serif text-xl text-sage-dark mb-2">{title}</h3>
-      <p className="text-sm leading-relaxed">{description}</p>
-    </div>
-  )
-}
 function useCountUp(target, duration = 1500) {
   const [count, setCount] = useState(0)
   const ref = useRef(null)
@@ -175,6 +188,16 @@ function useCountUp(target, duration = 1500) {
   }, [target, duration])
 
   return [count, ref]
+}
+
+function StatCard({ prefix = '', target, suffix = '', label }) {
+  const [count, ref] = useCountUp(target)
+  return (
+    <div ref={ref}>
+      <p className="font-serif text-4xl mb-2">{prefix}{count.toLocaleString('en-IN')}{suffix}</p>
+      <p className="text-cream/80 text-sm">{label}</p>
+    </div>
+  )
 }
 
 function FeatureCard({ icon, title, description, tag, delay = 0 }) {
