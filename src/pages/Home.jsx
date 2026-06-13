@@ -1,3 +1,4 @@
+import { ShieldCheck } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { Upload, Map, FileText, Clock, Search, Users } from 'lucide-react'
 
@@ -83,7 +84,44 @@ export default function Home() {
           />
         </div>
       </section>
+        {/* How It Works Section */}
+      <section id="how" className="bg-sage/10 py-24">
+        <div className="max-w-5xl mx-auto px-6">
+          <h2 className="font-serif text-3xl md:text-4xl text-sage-dark text-center mb-16">
+            How it works
+          </h2>
+          <div className="grid md:grid-cols-3 gap-12 text-center">
+            <div>
+              <div className="w-14 h-14 rounded-full bg-sage-dark text-cream flex items-center justify-center font-serif text-xl mx-auto mb-4">1</div>
+              <h3 className="font-serif text-lg text-sage-dark mb-2">Upload anything you have</h3>
+              <p className="text-sm leading-relaxed">A death certificate, a bank passbook photo, an insurance file — whatever's available.</p>
+            </div>
+            <div>
+              <div className="w-14 h-14 rounded-full bg-sage-dark text-cream flex items-center justify-center font-serif text-xl mx-auto mb-4">2</div>
+              <h3 className="font-serif text-lg text-sage-dark mb-2">AI maps your situation</h3>
+              <p className="text-sm leading-relaxed">We identify every account, asset, and deadline — even ones you didn't know existed.</p>
+            </div>
+            <div>
+              <div className="w-14 h-14 rounded-full bg-sage-dark text-cream flex items-center justify-center font-serif text-xl mx-auto mb-4">3</div>
+              <h3 className="font-serif text-lg text-sage-dark mb-2">We act on it with you</h3>
+              <p className="text-sm leading-relaxed">Letters drafted, deadlines tracked, and your family kept in sync — every step of the way.</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
+      {/* Trust Section */}
+      <section className="max-w-3xl mx-auto px-6 py-20 text-center">
+        <ShieldCheck className="text-sage-dark mx-auto mb-4" size={36} />
+        <h2 className="font-serif text-2xl md:text-3xl text-sage-dark mb-4">
+          Built with care, and with privacy in mind
+        </h2>
+        <p className="leading-relaxed">
+          We know what you're uploading is deeply personal. Documents are used
+          only to help your family — never sold, never shared, and you're always
+          in control of what's stored.
+        </p>
+      </section>
     </div>
   )
 }

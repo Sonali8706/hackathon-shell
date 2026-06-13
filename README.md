@@ -1,16 +1,49 @@
-# React + Vite
+# AfterCare AI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**The world's first AI-powered estate intelligence agent — built for Vibeathon 2026.**
 
-Currently, two official plugins are available:
+## The Problem
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Every year, over 55 million people die globally, leaving behind 15–20 active
+financial accounts, 30+ subscriptions, insurance policies, and legal
+obligations. Bereaved families spend 400+ hours navigating this alone, with
+zero guidance — leading to $58B in unclaimed assets and a 700% spike in
+post-death identity theft.
 
-## React Compiler
+## The Solution
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+AfterCare AI lets families upload whatever documents they have — bank
+statements, insurance papers, even photos — and uses AI to map the entire
+estate, generate legally appropriate closure letters, track deadlines with
+plain-English explanations, surface hidden/dormant assets, and coordinate
+tasks across family members.
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Guided Onboarding** — zero-form document upload
+- **AI Estate Mapper** — visual, urgency-sorted view of every account and asset
+- **AI Document Generator** — instantly drafted, jurisdiction-aware closure letters
+- **Deadline Tracker** — plain-English legal deadlines with context
+- **Hidden Asset Discovery** — flags dormant accounts and forgotten policies
+- **Family Collaboration** — shared task board across family members
+
+## Tech Stack
+
+- React + Vite
+- Tailwind CSS
+- React Router
+- Supabase (database)
+- Lucide Icons
+- Deployed on Vercel
+
+## AI Tools Disclosed
+
+- Claude (Anthropic) — used for code generation, UI design, and copywriting during development
+
+## Live Demo
+
+https://hackathon-shell.vercel.app/
+
+## Team
+
+Soanli kumari jha

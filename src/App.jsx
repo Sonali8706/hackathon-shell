@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
+import Footer from './components/Footer'
 import Home from './pages/Home'
 import Upload from './pages/Upload'
 import Mapper from './pages/Mapper'
@@ -19,6 +20,7 @@ function App() {
         <Route path="/timeline" element={<Timeline />} />
         <Route path="/family" element={<Family />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   )
 }
