@@ -1,3 +1,4 @@
+import { Info } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { Landmark, ShieldCheck, FileSignature, Repeat, AlertTriangle, ArrowRight } from 'lucide-react'
 
@@ -66,6 +67,15 @@ export default function Mapper() {
           Generate closure letters
           <ArrowRight size={20} />
         </Link>
+      </div>
+      <div className="bg-accent/10 border border-accent/30 rounded-2xl p-5 mb-12 flex items-start gap-3">
+        <Info className="text-accent flex-shrink-0 mt-0.5" size={20} />
+        <p className="text-sm leading-relaxed">
+          <span className="font-medium text-sage-dark">Did you know? </span>
+          As of 2024, banks in India are holding ₹78,213 crore in unclaimed deposits (RBI).
+          The SBI PPF account flagged above is exactly the kind of dormant asset families
+          never discover — until it's too late.
+        </p>
       </div>
     </div>
   )

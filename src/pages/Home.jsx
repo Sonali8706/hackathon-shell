@@ -35,8 +35,8 @@ export default function Home() {
             <p className="text-cream/80 text-sm">spent by families navigating paperwork alone</p>
           </div>
           <div>
-            <p className="font-serif text-4xl mb-2">$58B</p>
-            <p className="text-cream/80 text-sm">in unclaimed assets sitting undiscovered</p>
+            <p className="font-serif text-4xl mb-2">₹78,213 Cr</p>
+            <p className="text-cream/80 text-sm">in unclaimed bank deposits across India (RBI, 2024)</p>
           </div>
           <div>
             <p className="font-serif text-4xl mb-2">700%</p>
@@ -55,36 +55,12 @@ export default function Home() {
         </p>
 
         <div className="grid md:grid-cols-3 gap-8">
-          <FeatureCard
-            icon={<Upload size={28} />}
-            title="Guided Onboarding"
-            description="No overwhelming forms. Just upload a death certificate, bank statement, or even a photo — we take it from there."
-          />
-          <FeatureCard
-            icon={<Map size={28} />}
-            title="AI Estate Mapper"
-            description="A visual map of every account, asset, and subscription we find — color-coded by urgency."
-          />
-          <FeatureCard
-            icon={<FileText size={28} />}
-            title="AI Document Generator"
-            description="One click creates a legally appropriate closure letter for any institution, ready to send."
-          />
-          <FeatureCard
-            icon={<Clock size={28} />}
-            title="Deadline Tracker"
-            description="Every legal deadline explained simply — what it means, and what happens if it's missed."
-          />
-          <FeatureCard
-            icon={<Search size={28} />}
-            title="Hidden Asset Discovery"
-            description="We flag dormant accounts and forgotten policies families routinely never find."
-          />
-          <FeatureCard
-            icon={<Users size={28} />}
-            title="Family Collaboration"
-            description="Add family members, assign tasks, and track progress together — nothing falls through the cracks."
-          />
+            <FeatureCard icon={<Upload size={28} />} title="Guided Onboarding" description="..." delay={0} />
+            <FeatureCard icon={<Map size={28} />} title="AI Estate Mapper" description="..." delay={0.1} />
+            <FeatureCard icon={<FileText size={28} />} title="AI Document Generator" description="..." delay={0.2} />
+            <FeatureCard icon={<Clock size={28} />} title="Deadline Tracker" description="..." delay={0.3} />
+            <FeatureCard icon={<Search size={28} />} title="Hidden Asset Discovery" description="..." delay={0.4} />
+            <FeatureCard icon={<Users size={28} />} title="Family Collaboration" description="..." delay={0.5} />
         </div>
       </section>
         {/* How It Works Section */}
@@ -129,9 +105,12 @@ export default function Home() {
   )
 }
 
-function FeatureCard({ icon, title, description }) {
+function FeatureCard({ icon, title, description, delay = 0 }) {
   return (
-    <div className="bg-white/60 border border-sage/20 rounded-2xl p-8 hover:shadow-lg hover:-translate-y-1 transition">
+    <div
+      className="bg-white/60 border border-sage/20 rounded-2xl p-8 hover:shadow-lg hover:-translate-y-1 transition animate-fade-in-up"
+      style={{ animationDelay: `${delay}s` }}
+    >
       <div className="text-sage-dark mb-4">{icon}</div>
       <h3 className="font-serif text-xl text-sage-dark mb-2">{title}</h3>
       <p className="text-sm leading-relaxed">{description}</p>
